@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globales */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white;
+}
+
+/* Tema Kawaii */
+html.kawaii {
+  @apply bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50;
+}
+
+html.kawaii body {
+  @apply bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 text-purple-900;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+html.kawaii .dark {
+  @apply bg-gradient-to-br from-purple-900 via-pink-900 to-blue-900;
+}
+
+/* Cards Kawaii */
+html.kawaii .bg-white {
+  background: linear-gradient(135deg, #fff 0%, rgba(251, 196, 229, 0.3) 100%);
+}
+
+html.kawaii .border {
+  @apply border-pink-300;
+}
+
+html.kawaii button, html.kawaii .btn {
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+html.kawaii button:hover, html.kawaii .btn:hover {
+  box-shadow: 0 8px 16px rgba(255, 110, 199, 0.15);
+  transform: translateY(-2px);
+}
+
+html.kawaii input, html.kawaii textarea, html.kawaii select {
+  border-radius: 20px;
+  border-color: rgb(248, 113, 195);
+}
+
+html.kawaii input:focus, html.kawaii textarea:focus, html.kawaii select:focus {
+  border-color: rgb(244, 63, 169);
+  box-shadow: 0 0 0 3px rgba(244, 63, 169, 0.1);
+}
+
+html.kawaii h1, html.kawaii h2, html.kawaii h3 {
+  color: rgb(236, 72, 153);
+}
+
+html.kawaii .text-blue-600 {
+  color: rgb(168, 85, 247);
+}
+
+html.kawaii .dark .text-blue-600 {
+  color: rgb(244, 144, 250);
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+html.kawaii ::-webkit-scrollbar-track {
+  @apply bg-pink-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+html.kawaii ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgb(244, 152, 228), rgb(216, 180, 254));
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+html.kawaii ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgb(244, 114, 205), rgb(196, 141, 233));
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes bounce-kawaii {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+html.kawaii .animate-bounce {
+  animation: bounce-kawaii 1s infinite;
+}
+
+/* Efectos Kawaii para gradientes */
+html.kawaii .bg-gradient-to-r {
+  background: linear-gradient(to right, rgba(248, 113, 195, 0.1), rgba(196, 141, 233, 0.1), rgba(168, 217, 245, 0.1));
+}
+
+html.kawaii .dark .bg-gradient-to-r {
+  background: linear-gradient(to right, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+}
+
+
