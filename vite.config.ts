@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [
     react(),
   ],
-  base: '/',
+  // Use relative base so assets work on GitHub Pages regardless of site root
+  base: './',
   server: {
     host: '0.0.0.0',
     port: 5173,
