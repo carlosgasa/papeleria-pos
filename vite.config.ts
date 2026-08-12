@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [
     react(),
   ],
-  // Use relative base so assets work on GitHub Pages regardless of site root
-  base: './',
+  // GitHub Pages with project name in subdirectory
+  base: '/papeleria-pos/',
   server: {
     host: '0.0.0.0',
     port: 5173,
