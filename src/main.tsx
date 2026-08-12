@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './app/App';
 import './app/index.css';
 
-// Registrar service worker para PWA
+// Registrar service worker para PWA (ruta relativa para GitHub Pages)
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch((error) => {
+navigator.serviceWorker.register('sw.js').catch((error) => {
     console.log('SW registration failed:', error);
   });
 }
