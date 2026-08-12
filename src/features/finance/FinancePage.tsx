@@ -3,7 +3,7 @@ import Button from '../../shared/components/Button';
 import Card from '../../shared/components/Card';
 import Input from '../../shared/components/Input';
 import { useAuth } from '../auth/useAuth';
-import { createDocument, onCollectionSnapshot } from '../../core/firebase/firestoreService';
+import { createDocument, onCollectionSnapshot, deleteDocument } from '../../core/firebase/firestoreService';
 import type { Sale, Investment } from '../../core/types';
 import { Timestamp } from 'firebase/firestore';
 
@@ -172,9 +172,28 @@ const FinancePage: React.FC = () => {
                     <p className="text-xs text-gray-600 dark:text-gray-400">
                       {new Date((inv.date as Timestamp).toDate()).toLocaleDateString('es-MX')}
                     </p>
-                    <p className="font-bold text-yellow-600 dark:text-yellow-400">
-                      ${inv.amount.toFixed(2)}
-                    </p>
+                    <div className="flex items-center gap-2">
+                      <p className="font-bold text-yellow-600 dark:text-yellow-400">
+                        ${inv.amount.toFixed(2)}
+                      </p>
+                      <button
+                        onClick={async () => {
+                          if (!user) return;
+                          if (!confirm('¿Eliminar inversión?')) return;
+                          try {
+                            await deleteDocument(user.uid, 'investments', inv.id);
+                            alert('✅ Inversión eliminada');
+                          } catch (error) {
+                            console.error('Error eliminando inversión:', error);
+                            alert('❌ Error al eliminar inversión');
+                          }
+                        }}
+                        className="px-2 py-1 text-xs bg-red-200 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded"
+                        title="Eliminar inversión"
+                      >
+                        🗑️
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))
