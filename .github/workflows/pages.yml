@@ -52,6 +52,11 @@ jobs:
             npm run build -- --base=/papeleria-pos/
           fi
 
+      - name: Copy config files to dist
+        run: |
+          cp .nojekyll dist/
+          cp .gitattributes dist/
+
       - name: Configure Pages
         uses: actions/configure-pages@v3
 
